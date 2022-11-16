@@ -19,40 +19,66 @@
 
     <div id="root">
 
-        <div class="contenitore m-auto mt-5 d-felx flex-row ">
+        <div class="contenitore m-auto mt-5">
 
             <div class="left-side">
                 <header>
 
-                    <div class="profile-header d-flex align-items-center ps-2">
-                        <div class="io-image"></div>
-                        <div class="fw-bold ms-2">Sonia</div>
+                    <div class="profile-header d-flex align-items-center ps-2 pe-3 justify-content-between">
+                        <div class="d-flex align-items-center ps-2">
+                            <div class="io-image"></div>
+                            <div class="fw-bold ms-2">Sonia</div>
+                        </div>
+
+                        <div class="anteprima d-flex align-items-center fs-6">
+                            <div class="me-3">
+                                <i class="fa-solid fa-circle-notch"></i>
+                            </div>
+                            <div class="me-3">
+                                <i class="fa-solid fa-message"></i>
+                            </div>
+                            <div class="me-2">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="notification-section d-flex align-items-center">
                         <div class="cerchio d-flex justify-content-center align-items-center ms-3">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
                         <div class="ms-2">
-                            <b>Ricevi notifiche di nuovi messaggi</b> 
+                            <b>Ricevi notifiche di nuovi messaggi</b>
                             <div class="didascalia">Attiva le notifiche</div>
                         </div>
                     </div>
                     <div class="search d-flex justify-content-center align-items-center">
-                        <input type="text" name="" id="" class="barra-ricerca "
-                            placeholder="  Cerca o inizia una nuova chat">
+                        <input type="text" name="" id="" class="barra-ricerca ps-2"
+                            placeholder="Cerca o inizia una nuova chat">
                     </div>
-                    <div class="sezione-messaggio d-flex align-items-center ms-2">
-                        <div class="profile-image"></div>
-                        <div class=" ms-2">
+                    <div class="d-flex">
+                        <!-- <div class="profile-image"></div> -->
+                        <div class=" ms-2 w-100">
 
-                            <div class="d-flex justify-content-between">
+                            <ul class=" list-group list-group-flush">
+                                <li class="sezione-messaggio list-group-items d-flex align-items-center pt-1 pb-1"
+                                    v-for="( elem, index ) in contacts">
+                                    <img :src="'./img/avatar' + elem.avatar + '.jpg'" alt="avatar 1"
+                                        class="rounded-circle avatar-chat me-2 avatar">
+                                    <div>
+                                        <div class="col fw-bold ">{{ elem.name }}</div>
+                                        <div class="anteprima">Ultimo accesso alle {{ elem.ultimo }}</div>
+                                    </div>
+
+                                </li>
+                            </ul>
+                            <!-- <div class="d-flex justify-content-between">
                                 <div class="col fw-bold ">Michele</div>
-                                <!-- <div class="col anteprima">12.20</div> -->
                             </div>
-                            
+
                             <div>
-                                <div class="anteprima">ciao</div>
-                            </div>
+                                <div class="anteprima">Ultimo accesso il 10/01/2020 15:30:55</div>
+                            </div> -->
                         </div>
 
 
@@ -63,12 +89,71 @@
                 </header>
             </div>
 
-            <div class="right-side">
+            <div class="right-side d-flex flex-column ">
 
-                <div>
+                <header class="profile-header d-flex align-items-center ps-2">
+                    <div class="profile-image"></div>
 
-                </div>
+                    <div class="w-100 d-flex justify-content-between">
+                        <div class="d-flex flex-column  ps-2">
+                            <div class="col fw-bold ">Michele</div>
+                            <div class="col anteprima">Ultimo accesso il 10/01/2020 15:30:55</div>
+                        </div>
 
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="anteprima fs-6 pe-3">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <div class="anteprima fs-6 pe-3">
+                                <i class="fa-solid fa-paperclip"></i>
+                            </div>
+                            <div class="anteprima fs-6 pe-4">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </header>
+
+                <main class="p-4 flex-grow-1">
+
+                    <div class="d-flex align-items-start justify-content-end mt-2">
+                        <div class="green-cloud p-2 ps-3 pe-3">
+                            Hai preso il pane?
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start justify-content-end mt-2">
+                        <div class="green-cloud p-2 ps-3 pe-3">
+                            Ricordati di stendere i panni
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start  mt-2">
+                        <div class="white-cloud p-2 ps-3 pe-3">
+                            Ho fatto tutto!
+                        </div>
+                    </div>
+
+
+
+
+                </main>
+
+                <footer
+                    class="sezione-scrivi d-flex justify-content-between justify-content-center align-items-center ps-5 pe-5">
+                    <div>
+                        <i class="fa-regular fa-face-smile anteprima fs-4"></i>
+                    </div>
+
+                    <div>
+                        <input type="text" class="messaggio-input ps-4" placeholder="Scrivi un messaggio">
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-microphone anteprima fs-4"></i>
+                    </div>
+                </footer>
 
 
             </div>
@@ -110,8 +195,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
-    <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
