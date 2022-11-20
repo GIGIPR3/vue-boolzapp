@@ -108,18 +108,22 @@ body{
 }
 
 
-.green-cloud{
+.sent{
     background-color: rgb(213, 249, 186);
     display: inline-block;
     border-radius: 15px;
-    align-items: flex-end;
+    justify-content: end;
+    width: 30%;
+    margin-top: 1%;
 }
 
-.white-cloud{
+.received{
     background-color: white;
     display: inline-block;
     border-radius: 15px;
-    align-items: flex-end;
+    align-items: flex-start;
+    width: 30%;
+    margin-top: 1%;
 }
 
 

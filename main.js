@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#root',
     data: {
+        indiceDinamico: 0,
         contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -168,6 +169,11 @@ var app = new Vue({
 
 
 
+    },
+    methods:{
+        miaFunzione(elem, index){
+            this.indiceDinamico = index;
+        }
     }
 
 });
